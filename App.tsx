@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react'
 import StackNavigator from './src/navigator/StackNavigator';
-import { NavigationContainer,DefaultTheme, Theme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from './src/context/themeContext';
 
 const App = () => {
@@ -15,9 +15,7 @@ const App = () => {
   }
   return (
     <AppState>
-      <NavigationContainer>
-        <StackNavigator />
-      </NavigationContainer>
+      <StackNavigator />
     </AppState>
   )
 }

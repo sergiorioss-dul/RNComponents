@@ -1,4 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer} from '@react-navigation/native';
 import { AlertScreen,
         Animation101Screen,
         Animation102Screen,
@@ -12,12 +13,19 @@ import { AlertScreen,
         SlidesScreen,
         ThemeScreen
 } from '../screens';
-import { NavigationContainer,DefaultTheme, Theme } from '@react-navigation/native';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/themeContext';
 
 const Stack = createStackNavigator();
 
 const StackNavigator = () => {
+
+ const { theme } = useContext(ThemeContext)
+
   return (
+    <NavigationContainer
+      theme={theme}
+    >
       <Stack.Navigator>
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown:false }} />
         <Stack.Screen name="Animation101Screen" component={Animation101Screen} options={{ headerShown:false }} />
@@ -32,6 +40,7 @@ const StackNavigator = () => {
         <Stack.Screen name="SlidesScreen" component={SlidesScreen} options={{ headerShown:false }} />
         <Stack.Screen name="ThemeScreen" component={ThemeScreen} options={{ headerShown:false }} />
       </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
